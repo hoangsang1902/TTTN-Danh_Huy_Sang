@@ -1,0 +1,1 @@
+result_text = f"ĐÂY LÀ THẺ: GIẤY PHÉP LÁI XE"

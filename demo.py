@@ -62,7 +62,7 @@ canvas = Canvas(root, width=480, height=320, bg="white")
 canvas.place(x=100, y=350)
 
 # Label để hiển thị kết quả
-result_label = Label(root, bg='white', fg='blue', font=('Time 13 bold'))
+result_label = Label(root, bg='white', fg='blue', font=('Time 14 bold'))
 result_label.place(x=700, y=350)
 
 # Khởi tạo client của Wit.ai với access token của bạn
@@ -138,7 +138,7 @@ def txtt():
     # Hiển thị kết quả trên result_label
     loaithe = ""
     result_text = "ĐÂY LÀ THẺ: HỌC SINH — SINH VIÊN\n"
-    # result_text = f"ĐÂY LÀ THẺ: {loaithe}\n"
+    # result_text = f"ĐÂY LÀ THẺ: GIẤY PHÉP LÁI XE\n"
     max_index_length = len(str(max(len(text_part1), len(text_part2))))
     for i, line in enumerate(text_part1):
         function = functions1[i] if i < len(functions1) else "Unknown"
@@ -160,7 +160,7 @@ def txtt():
     result_label.config(text=result_text)
 
     # In kết quả lên terminal
-    # result_text = f"ĐÂY LÀ THẺ: {loaithe}"
+    # result_text = f"ĐÂY LÀ THẺ: GIẤY PHÉP LÁI XE\n"
     result_text = "ĐÂY LÀ THẺ: HỌC SINH — SINH VIÊN\n"
     print(result_text)
     for i, line in enumerate(text_part1):
@@ -179,7 +179,9 @@ def clean_text(text):
   unwanted_chars = ["!","@", "#", "$", "%", "^", "&", "*", "(", ")", "=", "+", "~", "[", "]", "{", "}", ";", "'", '"', "<", ">", "?", "|", "\\"]
   
   # Danh sách các từ không mong muốn
-  unwanted_words = ["Ngày sinh:","Khóa học :","Ngành :"]
+  unwanted_words = ["Ngày sinh:","Khóa học :","Ngành :","— BỘ GTVT _ ",":MỌT —","Số/Nº:","Họ tên/ Full name: "
+                    ,"Ngày sinh/Date ºf Birth:","Quốc tịch/Natiºnality:","Nơi cư trú/Address:","Có giá trị đến/Expires:"
+                    ]
   # Duyệt qua từng dòng trong chuỗi văn bản
   lines = text.splitlines()
   cleaned_lines = []
@@ -239,17 +241,17 @@ def get_data():
 
 
 # Giao diện nút chọn file ảnh
-btn_choose_image = Button(root, text='Chọn ảnh', bg='green', fg='white', font=('Time 15 bold'))
+btn_choose_image = Button(root, text='Image Upload', bg='green', fg='white', font=('Time 15 bold'))
 btn_choose_image.config(command=choose_image)
 btn_choose_image.place(x=100, y=700)
 
 # Nút nhấn trích xuất dữ liệu
-btn_txtt = Button(root, text='Trích xuất thông tin', bg='green', fg='white', font=('Time 15 bold'))
+btn_txtt = Button(root, text='Information Extraction', bg='green', fg='white', font=('Time 15 bold'))
 btn_txtt.config(command=txtt)
-btn_txtt.place(x=220, y=700)
+btn_txtt.place(x=280, y=700)
 
 # Nút nhấn nhập dữ liệu
-btn_get = Button(root, text='Nhập dữ liệu', bg='green', fg='white', font=('Time 15 bold'))
+btn_get = Button(root, text='Excel Export', bg='green', fg='white', font=('Time 15 bold'))
 btn_get.config(command=get_data)
 btn_get.place(x=880, y=700)
 
